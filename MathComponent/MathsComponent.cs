@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MathComponent
 {
@@ -26,7 +27,6 @@ namespace MathComponent
             else return value.ToString();
         }
 
-
         public bool IsPalindrom(string input)
         {
             if (input == null) return false;
@@ -45,6 +45,8 @@ namespace MathComponent
         public bool IsPalindrom2(string input)
         {
             return input != null && input.SequenceEqual(input.Reverse());
+
+
         }
 
         public int StringCalculator(string input)
@@ -62,22 +64,29 @@ namespace MathComponent
     {
         private void Method()
         {
-            System.Collections.ArrayList myArrayList = new System.Collections.ArrayList();
-            myArrayList.Add(System.Drawing.Color.Red);
-            myArrayList.Add(new System.Drawing.Point(0, 0));
-            myArrayList.Add(System.Drawing.Color.Green);
-            myArrayList.Add(new System.Drawing.Point(10, 20));
-            myArrayList.Add(System.Drawing.Color.Blue);
-            myArrayList.Add(new System.Drawing.Point(20, 30));
+            var myArrayList = new System.Collections.ArrayList
+            {
+                System.Drawing.Color.Red,
+                new System.Drawing.Point(0, 0),
+                System.Drawing.Color.Green,
+                new System.Drawing.Point(10, 20),
+                System.Drawing.Color.Blue,
+                new System.Drawing.Point(20, 30)
+            };
 
-            //var query = from color in myArrayList.OfType<System.Drawing.Color>() > ()
-            //            select color;
+            var query1 = myArrayList.OfType<System.Drawing.Color>().Select(color => color);
 
-            //foreach (var currentResult in query)
-            //    Console.WriteLine(currentResult.Name);
+            foreach (var currentResult in query1)
+                Console.WriteLine(currentResult.Name);
+
+
+
+            var procesArray = new System.Collections.ArrayList();
+            var query = procesArray.Cast<System.Diagnostics.Process>().Select(process => process);
+
         }
     }
-    class ProgramTuto
+    public class ProgramTuto
     {
         static void Main(string[] args)
         {
@@ -108,6 +117,8 @@ namespace MathComponent
             }
 
             Console.Read();
+
+
         }
 
         static void Main2(string[] args)
@@ -148,6 +159,10 @@ namespace MathComponent
         }
     }
 
+    public interface ITest1
+    {
+        void Method1();
+        int Method2(bool isvalid);
 
-
+    }
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace MathComponent
 {
-    public abstract class AbstructClass : /*ProgramTuto,*/ ITest1
+    public abstract class AbstructClass : ProgramTuto, ITest1
 
     {
         public virtual void Method3()
